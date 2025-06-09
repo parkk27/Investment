@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Investable Income Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="theme-toggle">
+                <button id="themeToggle" class="btn btn--outline btn--sm" aria-label="Toggle theme">
+                    <span id="themeIcon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Plan Smart. Invest Smarter.</h1>
+                    <p class="hero__subtitle">Discover how much of your income can work for your future.</p>
+                    <button id="startNowBtn" class="btn btn--primary btn--lg">Start Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section id="calculator" class="calculator">
+            <div class="container">
+                <div class="calculator__wrapper">
+                    <div class="calculator__form">
+                        <div class="card">
+                            <div class="card__body">
+                                <h2>Calculate Your Investable Income</h2>
+                                <form id="incomeForm" class="income-form">
+                                    <div class="form-group">
+                                        <label for="monthlyIncome" class="form-label">Monthly Income *</label>
+                                        <input 
+                                            type="number" 
+                                            id="monthlyIncome" 
+                                            class="form-control" 
+                                            placeholder="Enter your monthly income"
+                                            min="0"
+                                            step="100"
+                                            required
+                                        >
+                                        <div class="error-message" id="incomeError"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="fixedExpenses" class="form-label">Fixed Monthly Expenses *</label>
+                                        <input 
+                                            type="number" 
+                                            id="fixedExpenses" 
+                                            class="form-control" 
+                                            placeholder="Rent, utilities, loans, etc."
+                                            min="0"
+                                            step="100"
+                                            required
+                                        >
+                                        <div class="error-message" id="fixedError"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="variableExpenses" class="form-label">Variable Expenses (Optional)</label>
+                                        <input 
+                                            type="number" 
+                                            id="variableExpenses" 
+                                            class="form-control" 
+                                            placeholder="Food, entertainment, shopping"
+                                            min="0"
+                                            step="50"
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="financialGoal" class="form-label">Financial Goal</label>
+                                        <select id="financialGoal" class="form-control" required>
+                                            <option value="">Select your goal</option>
+                                            <option value="Short-term">Short-term (1-2 years)</option>
+                                            <option value="Long-term">Long-term (3-10 years)</option>
+                                            <option value="Retirement">Retirement (10+ years)</option>
+                                            <option value="Emergency Fund">Emergency Fund</option>
+                                        </select>
+                                    </div>
+
+                                    <button type="submit" class="btn btn--primary btn--full-width">
+                                        Calculate Investable Income
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculator__results" id="resultsSection" style="display: none;">
+                        <div class="card">
+                            <div class="card__body">
+                                <h3>Your Investment Plan</h3>
+                                
+                                <div class="result-summary">
+                                    <div class="result-item">
+                                        <span class="result-label">Monthly Investable Income:</span>
+                                        <span class="result-value" id="investableAmount">₹0</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <span class="result-label">Safety Buffer Applied:</span>
+                                        <span class="result-value" id="bufferAmount">₹0</span>
+                                    </div>
+                                </div>
+
+                                <div class="recommendations" id="recommendations">
+                                    <h4>Recommended Investment Options</h4>
+                                    <div class="recommendations__list" id="recommendationsList">
+                                        <!-- Investment recommendations will be populated here -->
+                                    </div>
+                                </div>
+
+                                <button id="recalculateBtn" class="btn btn--secondary btn--full-width mt-8">
+                                    Recalculate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__disclaimer">
+                    <strong>Disclaimer:</strong> This tool is experimental and does not constitute financial advice.
+                </p>
+                <div class="footer__credits">
+                    <p>Created by Kunal Parekh | AI-Powered Financial Utility</p>
+                    <div class="footer__links">
+                        <a href="#" target="_blank">About</a>
+                        <a href="#" target="_blank">Privacy</a>
+                        <a href="#" target="_blank">API Integration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
